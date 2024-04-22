@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+  <div class="col">
+    {% if object %}
+    <h1>Update {{object.name}}'s Details</h1>
+    {% else %}
+    <h1>Create Finch</h1>
+    {% endif %}
+  </div>
+  <div></div>
+  <div class="col">
+    <form action="" method="POST" autocomplete="off">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table>
+      <input type="submit" value="Submit" class="btn btn-primary mt-2" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}
