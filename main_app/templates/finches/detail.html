@@ -11,7 +11,12 @@
           <p>Specialty: {{ finch.specialty }}</p>
         </div>
         <div class="card-action">
-          <a href="{% url 'finch_update' finch.id %}">Edit</a>
+          <a href="{% url 'finch_update' finch.id %}" class="btn btn-primary"
+            >Edit</a
+          >
+          <a href="{% url 'finch_delete' finch.id %}" class="btn btn-primary"
+            >Delete</a
+          >
         </div>
       </div>
     </div>

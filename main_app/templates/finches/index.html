@@ -12,7 +12,9 @@
           <p>Location: {{ finch.location }}</p>
           <p>Specialty: {{ finch.specialty }}</p>
         </div>
-        <a href="/finches/{{finch.id}}" class="btn btn-primary">View Finch</a>
+        <a href="/finches/{{finch.id}}" class="btn btn-primary"
+          >View {{finch.name}}</a
+        >
       </div>
     </div>
     {% endfor %}
