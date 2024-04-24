@@ -11,11 +11,8 @@ class Finch(models.Model):
     specialty = models.CharField(max_length=100)
 
 # to return a readable object
+    def __str__(self):
+        return self.name
 
-
-def __str__(self):
-    return self.name
-
-
-def get_absolute_url(self):
-    return reverse('detail', kwargs={'finch_id': self.id})  # /cats/3 ex
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'finch_id': self.id})

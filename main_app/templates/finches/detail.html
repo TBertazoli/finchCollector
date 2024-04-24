@@ -10,6 +10,9 @@
           <p>Location: {{ finch.location }}</p>
           <p>Specialty: {{ finch.specialty }}</p>
         </div>
+        <div class="card-action">
+          <a href="{% url 'finch_update' finch.id %}">Edit</a>
+        </div>
       </div>
     </div>
   </div>
