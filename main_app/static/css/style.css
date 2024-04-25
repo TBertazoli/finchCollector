@@ -3,3 +3,7 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
+
+.card {
+  border-color: blue;
+}

@@ -36,7 +36,7 @@ def finch_index(request):
 def finch_detail(request, finch_id):
     finch = Finch.objects.get(id=finch_id)
     feeding_form = FeedingForm()
-    id_list = finch.toys.all().values.list('id')
+    id_list = finch.toys.all().values_list('id')
     no_toys = Toy.objects.exclude(id__in=id_list)
     return render(request, "finches/detail.html", {
         'finch': finch,
