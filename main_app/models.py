@@ -27,6 +27,7 @@ class Finch(models.Model):
     age = models.IntegerField()
     location = models.CharField(max_length=100)
     breed = models.CharField(max_length=100)
+    toys = models.ManyToManyField(Toy)
 
 # to return a readable object
     def __str__(self):
