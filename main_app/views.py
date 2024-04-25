@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Finch
+from django.views.generic import ListView, DetailView
+from .models import Finch, Toy
 from .forms import FeedingForm
 
 # Create your views here.
@@ -35,10 +36,23 @@ def finch_index(request):
 def finch_detail(request, finch_id):
     finch = Finch.objects.get(id=finch_id)
     feeding_form = FeedingForm()
+    id_list = finch.toys.all().values.list('id')
+    no_toys = Toy.objects.exclude(id__in=id_list)
     return render(request, "finches/detail.html", {
         'finch': finch,
-        'feeding_form': feeding_form
+        'feeding_form': feeding_form,
+        'toys': no_toys
     })
+
+
+def assoc_toy(request, finch_id, toy_id):
+    Finch.objects.get(id=finch_id).toys.add(toy_id)
+    return redirect('detail', finch_id=finch_id)
+
+
+def unassoc_toy(request, finch_id, toy_id):
+    Finch.objects.get(id=finch_id).toys.remove(toy_id)
+    return redirect('detail', finch_id=finch_id)
 
 
 class FinchCreate(CreateView):
@@ -63,3 +77,11 @@ def add_feeding(request, finch_id):
         new_feeding.finch_id = finch_id
         new_feeding.save()
     return redirect('detail', finch_id=finch_id)
+
+
+class ToyList(ListView):
+    model = Toy
+
+
+class ToyDetail(DetailView):
+    model = Toy
