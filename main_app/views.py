@@ -5,14 +5,14 @@ from .models import Finch
 # Create your views here.
 
 finch_collectors = [
-    {"name": "Alice", "age": 35, "location": "New York",
-        "specialty": "Gouldian Finches"},
-    {"name": "Bob", "age": 28, "location": "Los Angeles",
-        "specialty": "Zebra Finches"},
-    {"name": "Charlie", "age": 42, "location": "Chicago",
-        "specialty": "Society Finches"},
-    {"name": "Diana", "age": 31, "location": "Miami",
-        "specialty": "Diamond Firetails"}
+    {"name": "Alice", "age": 3, "location": "New York",
+        "breed": "Gouldian Finches"},
+    {"name": "Bob", "age": 2, "location": "Los Angeles",
+        "breed": "Zebra Finches"},
+    {"name": "Charlie", "age": 4, "location": "Chicago",
+        "breed": "Society Finches"},
+    {"name": "Diana", "age": 3, "location": "Miami",
+        "breed": "Diamond Firetails"}
 ]
 
 
